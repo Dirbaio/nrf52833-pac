@@ -240,9 +240,9 @@ pub enum Interrupt {
     #[doc = "47 - SPIM3"]
     SPIM3 = 47,
 }
-unsafe impl bare_metal::Nr for Interrupt {
+unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline(always)]
-    fn nr(&self) -> u8 {
+    fn number(self) -> u16 {
         *self as u8
     }
 }
